@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Organization Demo — Replace with your details</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="script.js">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img id="site-logo" src="https://scontent.fdbd1-1.fna.fbcdn.net/v/t39.30808-1/536269659_122135580776871522_9169431358988006451_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=f907e8&_nc_ohc=Xl31AKi7lmAQ7kNvwFdf9O0&_nc_oc=Adl2PQ8fPlHx_PoAJ0tXrCDmhS_uDv2Mz-6OWmwCvBFTl_EiZoH328VHSE-buZEN7msud2sla0J0L72QmlzzscGp&_nc_zt=24&_nc_ht=scontent.fdbd1-1.fna&_nc_gid=iNwadAFq9nZJU3F7KbqVkg&oh=00_AfXj-iiGQ7uR4UfzjkbBQiAxqk04byyXhWUHTsc6Oepjqw&oe=68B8B2FB" style="height: 168px; width: 168px;"" alt="Logo" onerror="this.style.display='none'">
+      <div>
+        <div contenteditable="false" id="site-title" style="font-weight:800">Sara Helping Organization</div>
+        <div id="site-tag" class="muted">Community • Education • Support</div>
+      </div>
+    </div>
+    
+  </div>
+</header>
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home" style="background-image: url('assets/banner.jpg');">
+  <div class="container">
+    <div class="hero-inner">
+      <h1 id="hero-title">Your Social Partner — We Are With You</h1>
+      <p id="hero-sub">We provide education, health and emergency assistance for the poor and needy. This is a demo page — replace images and text later.</p>
+      <div style="display:flex;gap:12px;margin-top:12px">
+        <a href="#about" class="btn">Learn About Us</a>
+        <a href="#contact" class="btn" style="background:#1d1414;color:var(--accent);border:1px solid rgba(20,20,50,.06)">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>About Us</h3>
+        <p id="about-text">Here you can put a short introduction about your organization. You may include the mission, vision and foundation details. Replace this paragraph later.</p>
+        <p class="muted">Mission: Education and Community Development.</p>
+      </div>
+      <div class="card">
+        <h3>What We Do</h3>
+        <ul id="services-list">
+          <li>Education Support and Tuition</li>
+          <li>Health Camps and Medicines</li>
+          <li>Emergency Relief</li>
+        </ul>
+      </div>
+      <div class="card owner">
+        <img id="owner-photo" src="assets/owner.jpg" alt="Owner" onerror="this.style.display='none'">
+        <div>
+          <strong id="owner-name">Owner Name</strong>
+          <div class="muted" id="owner-role">Founder & Director</div>
+          <p class="muted" style="margin-top:6px;font-size:14px">If desired, owner/leader photo and details can be shown here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div class="card">
+        <h4>Education</h4>
+        <p class="muted">School support, tuition and scholarship programs.</p>
+      </div>
+      <div class="card">
+        <h4>Health</h4>
+        <p class="muted">Free health camps, awareness drives and medical aid.</p>
+      </div>
+      <div class="card">
+        <h4>Relief Program</h4>
+        <p class="muted">Consolidated relief and food drives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <h2>Events & Photos</h2>
+    <div class="gallery card" style="margin-top:12px;padding:12px">
+      <img src="https://i.ibb.co/KjqXh1YF/IMG-20250827-WA0047.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery1.jpg</text></svg>'">
+      <img src="https://i.ibb.co/V0HM5L1n/IMG-20250827-WA0066.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery2.jpg</text></svg>'">
+      <img src="https://i.ibb.co/67bffKyv/IMG-20250827-WA0105.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery3.jpg</text></svg>'">
+      <img src="https://i.ibb.co/YB1BXs5C/IMG-20250827-WA0099.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery4.jpg</text></svg>'">
+      <img src="https://i.ibb.co/KjqXh1YF/IMG-20250827-WA0047.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery5.jpg</text></svg>'">
+      <img src="https://i.ibb.co/YB1BXs5C/IMG-20250827-WA0099.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery6.jpg</text></svg>'">      
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="grid" style="grid-template-columns:1fr 360px;gap:18px">
+      <div>
+        <div class="card">
+          <form id="contact-form">
+            <label>Full Name</label>
+            <input id="c-name" required>
+            <label>Email</label>
+            <input id="c-email" type="email" required>
+            <label>Phone</label>
+            <input id="c-phone">
+            <label>Message</label>
+            <textarea id="c-msg" rows="4"></textarea>
+            <div style="display:flex;gap:8px">
+              <button type="submit" class="btn">Send Message</button>
+              <button type="button" id="clear-form" style="padding:10px 12px;border-radius:8px">Clear</button>
+            </div>
+            <p id="form-status" class="muted" style="margin-top:8px"></p>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h4>Contact Details</h4>
+          <p class="muted">Phone: <span id="phone-text">+91 97093 69387</span></p>
+          <p class="muted">Email: <span id="email-text">info@example.org</span></p>
+          <p class="muted">Address: <span id="address-text">Head office:Musehari Bazar, Vijayipur, Gopalganj (Bihar)841426, Gopalganj, India, Bihar</span></p>
+          <h4 style="margin-top:8px">Social</h4>
+          <p class="muted" id="social-links">YouTube • Facebook • Instagram • WhatsApp</p>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <h4>Map</h4>
+          <div style="background:#eef4fb;height:180px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8924.402891939966!2d84.43751460480607!3d26.46368430310485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39931b000d10eabf%3A0x3e9aca155a8f9574!2sHussain%20house%20(Asraf%20Hussain)%20Gopalganj%20bihar%20India!5e1!3m2!1sen!2sin!4v1756554197354!5m2!1sen!2sin"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submissions admin table -->
+    <div style="margin-top:16px">
+      <div class="card">
+        <h4>Saved Submissions (Local)</h4>
+        <div id="submissions-list" style="max-height:220px;overflow:auto"></div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <button id="download-csv" class="btn">Download CSV</button>
+          <button id="clear-sub" style="padding:10px 12px;border-radius:8px">Clear Submissions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <strong id="footer-title">Sara Helping Organization</strong>
+      <div class="muted">© <span id="year"></span> All rights reserved</div>
+    </div>
+    <div class="muted">Follow: <span id="footer-social">YouTube / Facebook / Instagram</span></div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX MODAL -->
+<div id="lightbox" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:60">
+  <img id="lightbox-img" src="" style="max-width:90%;max-height:90%;border-radius:8px">
+</div>
+
+</body>
+</html>
