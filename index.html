@@ -1,184 +1,1169 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Organization Demo — Replace with your details</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="script.js">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedRescue Ambulance Service - 24/7 Emergency Medical Transport</title>
+    <meta name="description" content="24/7 emergency ambulance services, medical transport, and critical care. Fast response times with professional medical staff.">
+    <meta name="keywords" content="ambulance service, emergency medical transport, 24/7 ambulance, medical emergency">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://medrescue.example.com/">
+    <meta property="og:title" content="MedRescue Ambulance Service - 24/7 Emergency Medical Transport">
+    <meta property="og:description" content="24/7 emergency ambulance services, medical transport, and critical care. Fast response times with professional medical staff.">
+    <meta property="og:image" content="https://medrescue.example.com/images/hero-ambulance.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://medrescue.example.com/">
+    <meta property="twitter:title" content="MedRescue Ambulance Service - 24/7 Emergency Medical Transport">
+    <meta property="twitter:description" content="24/7 emergency ambulance services, medical transport, and critical care. Fast response times with professional medical staff.">
+    <meta property="twitter:image" content="https://medrescue.example.com/images/hero-ambulance.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚑</text></svg>">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="style" href="style.css">
+    
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --primary: #d32f2f;
+            --primary-dark: #b71c1c;
+            --secondary: #1a237e;
+            --secondary-light: #303f9f;
+            --text: #212121;
+            --text-light: #757575;
+            --background: #ffffff;
+            --background-alt: #f5f5f5;
+            --border: #e0e0e0;
+            --success: #388e3c;
+            --warning: #f57c00;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--background);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .logo-icon {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--background);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background-color: var(--background-alt);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+        }
+        
+        /* Testimonials */
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 1rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--background);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-card {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 4px solid var(--primary);
+        }
+        
+        .team-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* Donation Section */
+        .donation-progress {
+            margin: 2rem 0;
+        }
+        
+        .progress-bar {
+            height: 30px;
+            background-color: var(--background-alt);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 15px;
+            width: 65%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1rem;
+            background-color: var(--background-alt);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1rem;
+        }
+        
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            height: 200px;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-heading {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-link a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Mobile Bottom Bar */
+        .mobile-bottom-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--background);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+        
+        .mobile-bar-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+        }
+        
+        .mobile-bar-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: var(--text);
+            font-size: 0.8rem;
+        }
+        
+        .mobile-bar-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: var(--background);
+            padding: 2rem;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--background);
+                width: 100%;
+                box-shadow: var(--shadow);
+                padding: 1rem 0;
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .mobile-bottom-bar {
+                display: block;
+            }
+            
+            .booking-form {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <img id="site-logo" src="https://scontent.fdbd1-1.fna.fbcdn.net/v/t39.30808-1/536269659_122135580776871522_9169431358988006451_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=f907e8&_nc_ohc=Xl31AKi7lmAQ7kNvwFdf9O0&_nc_oc=Adl2PQ8fPlHx_PoAJ0tXrCDmhS_uDv2Mz-6OWmwCvBFTl_EiZoH328VHSE-buZEN7msud2sla0J0L72QmlzzscGp&_nc_zt=24&_nc_ht=scontent.fdbd1-1.fna&_nc_gid=iNwadAFq9nZJU3F7KbqVkg&oh=00_AfXj-iiGQ7uR4UfzjkbBQiAxqk04byyXhWUHTsc6Oepjqw&oe=68B8B2FB" style="height: 168px; width: 168px;"" alt="Logo" onerror="this.style.display='none'">
-      <div>
-        <div contenteditable="false" id="site-title" style="font-weight:800">Sara Helping Organization</div>
-        <div id="site-tag" class="muted">Community • Education • Support</div>
-      </div>
-    </div>
-    
-  </div>
-</header>
-<nav>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-
-<!-- HERO -->
-<section class="hero" id="home" style="background-image: url('assets/banner.jpg');">
-  <div class="container">
-    <div class="hero-inner">
-      <h1 id="hero-title">Your Social Partner — We Are With You</h1>
-      <p id="hero-sub">We provide education, health and emergency assistance for the poor and needy. This is a demo page — replace images and text later.</p>
-      <div style="display:flex;gap:12px;margin-top:12px">
-        <a href="#about" class="btn">Learn About Us</a>
-        <a href="#contact" class="btn" style="background:#1d1414;color:var(--accent);border:1px solid rgba(20,20,50,.06)">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>About Us</h3>
-        <p id="about-text">Here you can put a short introduction about your organization. You may include the mission, vision and foundation details. Replace this paragraph later.</p>
-        <p class="muted">Mission: Education and Community Development.</p>
-      </div>
-      <div class="card">
-        <h3>What We Do</h3>
-        <ul id="services-list">
-          <li>Education Support and Tuition</li>
-          <li>Health Camps and Medicines</li>
-          <li>Emergency Relief</li>
-        </ul>
-      </div>
-      <div class="card owner">
-        <img id="owner-photo" src="assets/owner.jpg" alt="Owner" onerror="this.style.display='none'">
-        <div>
-          <strong id="owner-name">Owner Name</strong>
-          <div class="muted" id="owner-role">Founder & Director</div>
-          <p class="muted" style="margin-top:6px;font-size:14px">If desired, owner/leader photo and details can be shown here.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🚑</span>
+                <span>MedRescue</span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#booking" class="nav-link">Book Ambulance</a></li>
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Emergency Contacts</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="#donate" class="nav-link">Donate</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link">FAQs</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <h2>Our Services</h2>
-    <div class="grid grid-3" style="margin-top:12px">
-      <div class="card">
-        <h4>Education</h4>
-        <p class="muted">School support, tuition and scholarship programs.</p>
-      </div>
-      <div class="card">
-        <h4>Health</h4>
-        <p class="muted">Free health camps, awareness drives and medical aid.</p>
-      </div>
-      <div class="card">
-        <h4>Relief Program</h4>
-        <p class="muted">Consolidated relief and food drives.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="container">
-    <h2>Events & Photos</h2>
-    <div class="gallery card" style="margin-top:12px;padding:12px">
-      <img src="https://i.ibb.co/KjqXh1YF/IMG-20250827-WA0047.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery1.jpg</text></svg>'">
-      <img src="https://i.ibb.co/V0HM5L1n/IMG-20250827-WA0066.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery2.jpg</text></svg>'">
-      <img src="https://i.ibb.co/67bffKyv/IMG-20250827-WA0105.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery3.jpg</text></svg>'">
-      <img src="https://i.ibb.co/YB1BXs5C/IMG-20250827-WA0099.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery4.jpg</text></svg>'">
-      <img src="https://i.ibb.co/KjqXh1YF/IMG-20250827-WA0047.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery5.jpg</text></svg>'">
-      <img src="https://i.ibb.co/YB1BXs5C/IMG-20250827-WA0099.jpg" alt="" onclick="openModal(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect fill=\'%23e5eef8\' width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23919fb7\' font-size=\'18\'>Replace gallery6.jpg</text></svg>'">      
-    </div>
-  </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <div class="grid" style="grid-template-columns:1fr 360px;gap:18px">
-      <div>
-        <div class="card">
-          <form id="contact-form">
-            <label>Full Name</label>
-            <input id="c-name" required>
-            <label>Email</label>
-            <input id="c-email" type="email" required>
-            <label>Phone</label>
-            <input id="c-phone">
-            <label>Message</label>
-            <textarea id="c-msg" rows="4"></textarea>
-            <div style="display:flex;gap:8px">
-              <button type="submit" class="btn">Send Message</button>
-              <button type="button" id="clear-form" style="padding:10px 12px;border-radius:8px">Clear</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">24/7 Emergency Ambulance Services</h1>
+            <p class="hero-subtitle">Fast, reliable medical transportation when you need it most</p>
+            <div class="cta-buttons">
+                <a href="#booking" class="btn btn-primary">Book Ambulance (24/7)</a>
+                <a href="tel:+1234567890" class="btn btn-secondary">Emergency Call</a>
             </div>
-            <p id="form-status" class="muted" style="margin-top:8px"></p>
-          </form>
         </div>
-      </div>
+    </section>
 
-      <div>
-        <div class="card">
-          <h4>Contact Details</h4>
-          <p class="muted">Phone: <span id="phone-text">+91 97093 69387</span></p>
-          <p class="muted">Email: <span id="email-text">info@example.org</span></p>
-          <p class="muted">Address: <span id="address-text">Head office:Musehari Bazar, Vijayipur, Gopalganj (Bihar)841426, Gopalganj, India, Bihar</span></p>
-          <h4 style="margin-top:8px">Social</h4>
-          <p class="muted" id="social-links">YouTube • Facebook • Instagram • WhatsApp</p>
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Emergency ambulance with paramedics" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Emergency Ambulance</h3>
+                        <p>24/7 emergency response with trained paramedics and life-saving equipment for critical situations.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Patient transport ambulance" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Patient Transport</h3>
+                        <p>Non-emergency medical transportation for hospital appointments, discharges, and transfers.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Air ambulance helicopter" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Air Ambulance</h3>
+                        <p>Critical care transport via helicopter for rapid response over long distances or difficult terrain.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card" style="margin-top:12px">
-          <h4>Map</h4>
-          <div style="background:#eef4fb;height:180px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8924.402891939966!2d84.43751460480607!3d26.46368430310485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39931b000d10eabf%3A0x3e9aca155a8f9574!2sHussain%20house%20(Asraf%20Hussain)%20Gopalganj%20bihar%20India!5e1!3m2!1sen!2sin!4v1756554197354!5m2!1sen!2sin"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section" style="background-color: var(--background-alt);">
+        <div class="container">
+            <h2 class="section-title">Book an Ambulance</h2>
+            <form class="booking-form" id="ambulanceBookingForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-control" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pickup" class="form-label">Pickup Location</label>
+                    <input type="text" id="pickup" class="form-control" placeholder="Enter address" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="dropoff" class="form-label">Destination</label>
+                    <input type="text" id="dropoff" class="form-control" placeholder="Hospital or facility name" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ambulanceType" class="form-label">Ambulance Type</label>
+                    <select id="ambulanceType" class="form-control" required aria-required="true">
+                        <option value="">Select type</option>
+                        <option value="emergency">Emergency Ambulance</option>
+                        <option value="transport">Patient Transport</option>
+                        <option value="critical">Critical Care Unit</option>
+                        <option value="air">Air Ambulance</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Service Time</label>
+                    <div>
+                        <input type="radio" id="now" name="time" value="now" checked>
+                        <label for="now">Immediately</label>
+                        
+                        <input type="radio" id="schedule" name="time" value="schedule" style="margin-left: 1rem;">
+                        <label for="schedule">Schedule</label>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="scheduleTime" style="display: none;">
+                    <label for="scheduledDateTime" class="form-label">Date & Time</label>
+                    <input type="datetime-local" id="scheduledDateTime" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes" class="form-label">Additional Notes</label>
+                    <textarea id="notes" class="form-control" rows="3" placeholder="Patient condition, special requirements, etc."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Booking</button>
+            </form>
         </div>
-      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What Our Patients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"The ambulance arrived within 10 minutes of our call. The paramedics were professional and provided excellent care during a very stressful time."</p>
+                            <p class="testimonial-author">- Sarah Johnson</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Medical Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Michael Rodriguez - Emergency Medicine Specialist" class="team-img">
+                    <h3 class="team-name">Dr. Michael Rodriguez</h3>
+                    <p class="team-role">Emergency Medicine Specialist</p>
+                    <p>15+ years of experience in emergency medical services and critical care transport.</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Williams - Senior Paramedic" class="team-img">
+                    <h3 class="team-name">Sarah Williams</h3>
+                    <p class="team-role">Senior Paramedic</p>
+                    <p>Specialized in trauma care and emergency response with 10 years of field experience.</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="James Thompson - Critical Care Nurse" class="team-img">
+                    <h3 class="team-name">James Thompson</h3>
+                    <p class="team-role">Critical Care Nurse</p>
+                    <p>Expert in intensive care during transport with advanced life support certification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="section" style="background-color: var(--background-alt);">
+        <div class="container">
+            <h2 class="section-title">Support Our Services</h2>
+            <p>Your donations help us maintain our fleet, train our staff, and provide services to those in need.</p>
+            
+            <div class="donation-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill">65%</div>
+                </div>
+                <div class="progress-text">
+                    <span>Raised: $32,500</span>
+                    <span>Goal: $50,000</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn btn-primary">Donate Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">How quickly can an ambulance arrive? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Our average response time in urban areas is 8-12 minutes. In rural areas, it may take slightly longer depending on location and weather conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What should I do while waiting for the ambulance? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Stay calm, ensure the area is safe for the ambulance to access, and have someone wait outside to guide the paramedics. If possible, gather the patient's medical information and medications.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do you provide inter-hospital transfers? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide both emergency and non-emergency transfers between medical facilities with appropriate medical staff and equipment for the patient's condition.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How much does an ambulance service cost? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Costs vary based on the type of service, distance, and medical care required. Emergency services are often covered by insurance, but we recommend checking with your provider for specific coverage details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section" style="background-color: var(--background-alt);">
+        <div class="container">
+            <h2 class="section-title">Our Fleet & Facilities</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Emergency ambulance vehicle" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ambulance interior with medical equipment" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Air ambulance helicopter" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Paramedics in training" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p>We're available 24/7 to assist with your medical transport needs.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <p><strong>Address:</strong> 123 Medical Way, Healthcare City, HC 12345</p>
+                        <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:info@medrescue.example.com">info@medrescue.example.com</a></p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-primary">Download Emergency Checklist (PDF)</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="background-color: #eee; height: 300px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center;">
+                        Google Map would be embedded here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contacts Section -->
+    <section id="contacts" class="section" style="background-color: var(--secondary); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Emergency Contacts</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div>
+                    <h3 style="color: white;">Immediate Emergency</h3>
+                    <p>National Emergency Number: <strong>911</strong></p>
+                    <p>Our Emergency Line: <strong><a href="tel:+1234567890" style="color: white;">+1 (234) 567-890</a></strong></p>
+                </div>
+                
+                <div>
+                    <h3 style="color: white;">Local Hospitals</h3>
+                    <p>City General Hospital: <strong>(234) 567-8910</strong></p>
+                    <p>University Medical Center: <strong>(234) 567-8911</strong></p>
+                </div>
+                
+                <div>
+                    <h3 style="color: white;">Other Emergency Services</h3>
+                    <p>Poison Control: <strong>(800) 222-1222</strong></p>
+                    <p>Mental Health Crisis: <strong>(888) 555-6789</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-heading">MedRescue</h3>
+                    <p>Providing emergency medical transportation services 24 hours a day, 7 days a week.</p>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Home</a></li>
+                        <li class="footer-link"><a href="#services">Services</a></li>
+                        <li class="footer-link"><a href="#booking">Book Ambulance</a></li>
+                        <li class="footer-link"><a href="#about">About Us</a></li>
+                        <li class="footer-link"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Legal</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="privacy.html">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Connect With Us</h3>
+                    <p>Follow us on social media for updates and health tips:</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MedRescue Ambulance Service. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Bar -->
+    <div class="mobile-bottom-bar">
+        <div class="mobile-bar-content">
+            <a href="tel:+1234567890" class="mobile-bar-btn">
+                <span class="mobile-bar-icon">📞</span>
+                <span>Call</span>
+            </a>
+            
+            <a href="https://wa.me/1234567890" class="mobile-bar-btn">
+                <span class="mobile-bar-icon">💬</span>
+                <span>WhatsApp</span>
+            </a>
+            
+            <a href="#booking" class="mobile-bar-btn">
+                <span class="mobile-bar-icon">🚑</span>
+                <span>Book</span>
+            </a>
+            
+            <a href="#contacts" class="mobile-bar-btn">
+                <span class="mobile-bar-icon">📋</span>
+                <span>Contacts</span>
+            </a>
+        </div>
     </div>
 
-    <!-- Submissions admin table -->
-    <div style="margin-top:16px">
-      <div class="card">
-        <h4>Saved Submissions (Local)</h4>
-        <div id="submissions-list" style="max-height:220px;overflow:auto"></div>
-        <div style="margin-top:8px;display:flex;gap:8px">
-          <button id="download-csv" class="btn">Download CSV</button>
-          <button id="clear-sub" style="padding:10px 12px;border-radius:8px">Clear Submissions</button>
+    <!-- Booking Confirmation Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Booking Confirmed</h3>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <p>Thank you for your booking. Our team will contact you shortly to confirm details.</p>
+            <p>If this is an emergency, please call <a href="tel:+1234567890">+1 (234) 567-890</a> immediately.</p>
+            <div style="margin-top: 1.5rem;">
+                <button class="btn btn-primary" id="modalCloseBtn">OK</button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<footer>
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center">
-    <div>
-      <strong id="footer-title">Sara Helping Organization</strong>
-      <div class="muted">© <span id="year"></span> All rights reserved</div>
-    </div>
-    <div class="muted">Follow: <span id="footer-social">YouTube / Facebook / Instagram</span></div>
-  </div>
-</footer>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "MedRescue Ambulance Service",
+      "description": "24/7 emergency ambulance services, medical transport, and critical care.",
+      "url": "https://medrescue.example.com",
+      "telephone": "+1234567890",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Medical Way",
+        "addressLocality": "Healthcare City",
+        "addressRegion": "HC",
+        "postalCode": "12345"
+      },
+      "openingHours": "24/7",
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.7128",
+          "longitude": "-74.0060"
+        },
+        "geoRadius": "50000"
+      },
+      "medicalSpecialty": "Emergency Medicine"
+    }
+    </script>
 
-<!-- LIGHTBOX MODAL -->
-<div id="lightbox" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:60">
-  <img id="lightbox-img" src="" style="max-width:90%;max-height:90%;border-radius:8px">
-</div>
-
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Toggle plus/minus icon
+                const icon = question.querySelector('span');
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+        
+        // Show/hide schedule time based on selection
+        document.querySelectorAll('input[name="time"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('scheduleTime').style.display = 
+                    this.value === 'schedule' ? 'block' : 'none';
+            });
+        });
+        
+        // Booking form submission
+        document.getElementById('ambulanceBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('bookingModal').style.display = 'flex';
+        });
+        
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('bookingModal').style.display = 'none';
+        });
+        
+        document.getElementById('modalCloseBtn').addEventListener('click', function() {
+            document.getElementById('bookingModal').style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('bookingModal')) {
+                document.getElementById('bookingModal').style.display = 'none';
+            }
+        });
+        
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
 </body>
 </html>
